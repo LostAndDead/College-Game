@@ -9,9 +9,15 @@ public class ScoreUpdater : MonoBehaviour
     [SerializeField] private Text lives;
     [SerializeField] private Text timer;
 
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().PlayMusic();
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwapTrackToLevel();
+    }
+
     void Update()
     {
-        gems.text = GameValues.Score.ToString();
+        gems.text = GameValues.Score.ToString() + "/" + GameValues.totalCoins.ToString();
         lives.text = GameValues.Lives.ToString();
     }
 

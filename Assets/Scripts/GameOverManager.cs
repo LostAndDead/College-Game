@@ -11,6 +11,8 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private Transform winScene;
     void Start()
     {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().PlayMusic();
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().SwapTrackToMenu();
         if(GameValues.isLoss){
             winScene.gameObject.SetActive(false);
             Title.text = "Game Over";
